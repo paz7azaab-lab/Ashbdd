@@ -3,18 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ashbdd | سایت آنلاین</title>
+<title>Ashbdd — Immersive 3D</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#07111f,#12304a);color:#fff;min-height:100vh}
-main{min-height:100vh;display:grid;place-items:center;padding:24px}.card{width:min(720px,100%);padding:48px 28px;border:1px solid #ffffff22;border-radius:28px;background:#ffffff0d;backdrop-filter:blur(12px);text-align:center;box-shadow:0 20px 70px #0005}
-.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#ffffff15;color:#9fe7ff;font-size:14px}h1{font-size:clamp(38px,10vw,72px);margin:18px 0 10px}p{color:#cbd7e5;font-size:18px;line-height:1.9;margin:0 auto 28px;max-width:560px}.btn{display:inline-block;padding:14px 24px;border-radius:14px;background:#fff;color:#0b2032;text-decoration:none;font-weight:bold}.status{margin-top:22px;color:#9fe7ff;font-size:14px}
+:root{--bg:#05070d;--ink:#f5f7ff;--muted:#9da6b9;--line:#ffffff18;--accent:#7cf6ff;--accent2:#9b7cff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;overflow-x:hidden}canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+nav{position:fixed;top:18px;left:18px;right:18px;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:13px 17px;border:1px solid var(--line);border-radius:18px;background:#080b14aa;backdrop-filter:blur(18px)}.logo{font-weight:900;letter-spacing:.08em}.links{display:flex;gap:18px}.links a{color:#dfe5f4;text-decoration:none;font-size:13px}.hero,.section{position:relative;z-index:2;min-height:100vh;display:grid;align-items:center;padding:110px 7vw}.hero{grid-template-columns:1.1fr .9fr}.copy{max-width:650px}.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(55px,10vw,130px);line-height:.88;margin:18px 0;background:linear-gradient(100deg,#fff,#9befff 45%,#a58cff);-webkit-background-clip:text;color:transparent}.hero p{font-size:clamp(16px,2vw,22px);line-height:1.9;color:var(--muted);max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{padding:14px 20px;border:1px solid var(--line);border-radius:13px;text-decoration:none;color:#fff;background:#ffffff0c;backdrop-filter:blur(12px)}.btn.primary{background:#f5f7ff;color:#080b12}.section{min-height:80vh}.panel{max-width:850px;border:1px solid var(--line);background:#ffffff07;backdrop-filter:blur(14px);border-radius:28px;padding:42px}.panel h2{font-size:clamp(34px,6vw,72px);margin:0 0 18px}.panel p{color:var(--muted);line-height:2;font-size:18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.tile{padding:24px;border:1px solid var(--line);border-radius:20px;background:#ffffff08}.tile b{display:block;margin-bottom:8px}.tile span{color:var(--muted);font-size:14px;line-height:1.8}.hint{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:4;color:#aab3c5;font-size:12px;background:#080b14bb;border:1px solid var(--line);padding:9px 13px;border-radius:999px;backdrop-filter:blur(10px)}
+@media(max-width:760px){nav{top:10px;left:10px;right:10px}.links{display:none}.hero{grid-template-columns:1fr;padding:105px 24px 70px}.hero h1{font-size:64px}.section{padding:70px 20px;min-height:75vh}.panel{padding:28px 22px}.grid{grid-template-columns:1fr}.hint{bottom:12px}}
 </style>
 </head>
-<body><main><section class="card">
-<span class="badge">● آنلاین و آماده توسعه</span>
-<h1>Ashbdd</h1>
-<p>اولین نسخه سایت تو آماده است؛ سریع، واکنش‌گرا و مناسب نمایش روی گوشی و کامپیوتر.</p>
-<a class="btn" href="#start" onclick="this.textContent='سایت با موفقیت اجرا شد 🚀'">شروع</a>
-<div class="status">نسخه 1.0 · GitHub Pages Ready</div>
-</section></main></body>
-</html>
+<body>
+<canvas id="scene"></canvas><div class="noise"></div>
+<nav><div class="logo">ASHBDD</div><div class="links"><a href="#world">جهان</a><a href="#system">سیستم</a><a href="#start">شروع</a></div></nav>
+<main>
+<section class="hero" id="start"><div class="copy"><div class="eyebrow">IMMERSIVE DIGITAL WORLD</div><h1>ASHBDD</h1><p>یک تجربه‌ی وب سه‌بعدی، زنده و تعاملی؛ با صحنه‌ی WebGL، حرکت دوربین با اسکرول و واکنش به حرکت موس.</p><div class="actions"><a class="btn primary" href="#world">ورود به جهان</a><a class="btn" href="#system">مشاهده سیستم</a></div></div></section>
+<section class="section" id="world"><div class="panel"><div class="eyebrow">THE WORLD</div><h2>فضا فقط پس‌زمینه نیست.</h2><p>آبجکت‌های سه‌بعدی، نور، ذرات و عمق میدان با حرکت کاربر تغییر می‌کنند تا صفحه حس یک محیط واقعی داشته باشد.</p><div class="grid"><div class="tile"><b>WebGL</b><span>رندر سه‌بعدی مستقیم در مرورگر</span></div><div class="tile"><b>Motion</b><span>حرکت نرم بر اساس موس و اسکرول</span></div><div class="tile"><b>Mobile</b><span>طراحی واکنش‌گرا برای گوشی</span></div></div></div></section>
+<section class="section" id="system"><div class="panel"><div class="eyebrow">NEXT LEVEL</div><h2>ساختار آماده توسعه.</h2><p>این نسخه پایه است؛ بعداً می‌توان مدل‌های GLB، محیط‌های HDR، شیدرهای اختصاصی، صدا و صحنه‌های چندبخشی را به آن اضافه کرد.</p><div class="actions"><a class="btn primary" href="#start">بازگشت</a></div></div></section>
+</main><div class="hint">🖱️ موس را حرکت بده · اسکرول کن</div>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+const canvas=document.querySelector('#scene'),scene=new THREE.Scene();
+scene.fog=new THREE.FogExp2(0x05070d,.055);
+const camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);camera.position.set(0,0,10);
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);
+scene.add(new THREE.AmbientLight(0x9bbcff,1.2));const light=new THREE.PointLight(0x7cf6ff,18,30);light.position.set(3,4,5);scene.add(light);
+const group=new THREE.Group();scene.add(group);
+const geo=new THREE.IcosahedronGeometry(2.1,2),mat=new THREE.MeshStandardMaterial({color:0x111a31,metalness:.8,roughness:.2,wireframe:false});
+const core=new THREE.Mesh(geo,mat);group.add(core);
+const ring1=new THREE.Mesh(new THREE.TorusGeometry(3.1,.018,12,180),new THREE.MeshBasicMaterial({color:0x7cf6ff}));ring1.rotation.x=.8;group.add(ring1);
+const ring2=new THREE.Mesh(new THREE.TorusGeometry(3.7,.012,12,180),new THREE.MeshBasicMaterial({color:0x9b7cff}));ring2.rotation.y=.9;group.add(ring2);
+const starsGeo=new THREE.BufferGeometry(),count=1100,pos=new Float32Array(count*3);for(let i=0;i<count*3;i++)pos[i]=(Math.random()-.5)*35;starsGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));const stars=new THREE.Points(starsGeo,new THREE.PointsMaterial({color:0xffffff,size:.025,transparent:true,opacity:.8}));scene.add(stars);
+let mx=0,my=0,scroll=0,targetScroll=0;addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5)});addEventListener('scroll',()=>targetScroll=scrollY);
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+function tick(t){requestAnimationFrame(tick);scroll+=(targetScroll-scroll)*.06;group.rotation.y+=.0025;group.rotation.x+=.001;ring1.rotation.z+=.003;ring2.rotation.z-=.002;stars.rotation.y+=.00015;
+group.position.x+=(mx*1.2-group.position.x)*.035;group.position.y+=(-my*.8-(scroll/innerHeight)*1.7-group.position.y)*.035;camera.position.z+=(10+scroll/innerHeight*1.5-camera.position.z)*.035;light.position.x=mx*7;light.position.y=-my*5;renderer.render(scene,camera)}
+tick();
+</script></body></html>
